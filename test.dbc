@@ -1,0 +1,268 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+
+BO_ 121 New_Message_4: 8 Vector__XXX
+ SG_ ktchannel55 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel54 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 120 New_Message_3: 8 Vector__XXX
+ SG_ ktchannel53 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel52 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel51 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel50 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 119 New_Message_2: 8 Vector__XXX
+ SG_ ktchannel49 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel48 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel47 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel46 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 118 New_Message_1: 8 Vector__XXX
+ SG_ ktchannel45 : 55|16@0+ (1,0) [0|65535] "v" Vector__XXX
+ SG_ ktchannel44 : 39|16@0+ (1,0) [0|65535] "v" Vector__XXX
+ SG_ ktchannel43 : 23|16@0+ (1,0) [0|65535] "V" Vector__XXX
+ SG_ ktchannel42 : 7|16@0+ (1,0) [0|65535] "v" Vector__XXX
+
+BO_ 117 New_Message_4: 8 Vector__XXX
+ SG_ ktchannel41 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel40 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 116 New_Message_3: 8 Vector__XXX
+ SG_ ktchannel39 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel38 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel37 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel36 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 115 New_Message_2: 8 Vector__XXX
+ SG_ ktchannel35 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel34 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel33 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel32 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 114 New_Message_1: 8 Vector__XXX
+ SG_ ktchannel31 : 55|16@0+ (1,0) [0|65535] "v" Vector__XXX
+ SG_ ktchannel30 : 39|16@0+ (1,0) [0|65535] "v" Vector__XXX
+ SG_ ktchannel29 : 23|16@0+ (1,0) [0|65535] "V" Vector__XXX
+ SG_ ktchannel28 : 7|16@0+ (1,0) [0|65535] "v" Vector__XXX
+
+BO_ 113 New_Message_4: 8 Vector__XXX
+ SG_ ktchannel27 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel26 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 112 New_Message_3: 8 Vector__XXX
+ SG_ ktchannel25 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel24 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel23 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel22 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 111 New_Message_2: 8 Vector__XXX
+ SG_ ktchannel21 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel20 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel19 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel18 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 110 New_Message_1: 8 Vector__XXX
+ SG_ ktchannel17 : 55|16@0+ (1,0) [0|65535] "v" Vector__XXX
+ SG_ ktchannel16 : 39|16@0+ (1,0) [0|65535] "v" Vector__XXX
+ SG_ ktchannel15 : 23|16@0+ (1,0) [0|65535] "V" Vector__XXX
+ SG_ ktchannel14 : 7|16@0+ (1,0) [0|65535] "v" Vector__XXX
+
+BO_ 109 New_Message_4: 8 Vector__XXX
+ SG_ ktchannel13 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel12 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 108 New_Message_3: 8 Vector__XXX
+ SG_ ktchannel11 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel10 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel9 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel8 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 107 New_Message_2: 8 Vector__XXX
+ SG_ ktchannel7 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel6 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel5 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ktchannel4 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 106 New_Message_1: 8 Vector__XXX
+ SG_ ktchannel3 : 55|16@0+ (1,0) [0|65535] "v" Vector__XXX
+ SG_ ktchannel2 : 39|16@0+ (1,0) [0|65535] "v" Vector__XXX
+ SG_ ktchannel1 : 23|16@0+ (1,0) [0|65535] "V" Vector__XXX
+ SG_ ktchannel0 : 7|16@0+ (1,0) [0|65535] "v" Vector__XXX
+
+BO_ 28 Message_7: 8 Vector__XXX
+ SG_ channel55 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel54 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 27 Message6: 8 Vector__XXX
+ SG_ channel53 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel52 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 26 message5: 8 Vector__XXX
+ SG_ channel51 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel50 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 25 message1: 8 Vector__XXX
+ SG_ channel49 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "V" Vector__XXX
+ SG_ channel48 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+
+BO_ 24 message4: 8 Vector__XXX
+ SG_ channel47 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel46 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 23 message3: 8 Vector__XXX
+ SG_ channel45 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel44 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 22 message2: 8 Vector__XXX
+ SG_ channel43 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+ SG_ channel42 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+
+BO_ 21 Message_7: 8 Vector__XXX
+ SG_ channel41 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel40 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 20 Message6: 8 Vector__XXX
+ SG_ channel39 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel38 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 19 message5: 8 Vector__XXX
+ SG_ channel37 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel36 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 18 message1: 8 Vector__XXX
+ SG_ channel35 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "V" Vector__XXX
+ SG_ channel34 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+
+BO_ 17 message4: 8 Vector__XXX
+ SG_ channel33 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel32 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 16 message3: 8 Vector__XXX
+ SG_ channel31 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel30 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 15 message2: 8 Vector__XXX
+ SG_ channel29 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+ SG_ channel28 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+
+BO_ 14 Message_7: 8 Vector__XXX
+ SG_ channel27 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel26 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 13 Message6: 8 Vector__XXX
+ SG_ channel25 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel24 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 12 message5: 8 Vector__XXX
+ SG_ channel23 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel22 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 11 message1: 8 Vector__XXX
+ SG_ channel21 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "V" Vector__XXX
+ SG_ channel20 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+
+BO_ 10 message4: 8 Vector__XXX
+ SG_ channel19 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel18 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 9 message3: 8 Vector__XXX
+ SG_ channel17 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel16 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 8 message2: 8 Vector__XXX
+ SG_ channel15 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+ SG_ channel14 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+
+BO_ 7 Message_7: 8 Vector__XXX
+ SG_ channel13 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel12 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 6 Message6: 8 Vector__XXX
+ SG_ channel11 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel10 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 5 message5: 8 Vector__XXX
+ SG_ channel9 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel8 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 1 message1: 8 Vector__XXX
+ SG_ channel1 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "V" Vector__XXX
+ SG_ channel0 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+
+BO_ 4 message4: 8 Vector__XXX
+ SG_ channel6 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel7 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 3 message3: 8 Vector__XXX
+ SG_ channel5 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+ SG_ channel4 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "" Vector__XXX
+
+BO_ 2 message2: 8 Vector__XXX
+ SG_ channel3 : 32|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+ SG_ channel2 : 0|32@1- (1,0) [-3.4E+038|3.4E+038] "v" Vector__XXX
+
+
+
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "CANoeJitterMax" INT 0 0;
+BA_DEF_ BU_  "CANoeJitterMin" INT 0 0;
+BA_DEF_ BU_  "CANoeDrift" INT 0 0;
+BA_DEF_ BU_  "CANoeStartDelay" INT 0 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "CANoeJitterMax" 0;
+BA_DEF_DEF_  "CANoeJitterMin" 0;
+BA_DEF_DEF_  "CANoeDrift" 0;
+BA_DEF_DEF_  "CANoeStartDelay" 0;
+SIG_VALTYPE_ 7 channel13 : 1;
+SIG_VALTYPE_ 7 channel12 : 1;
+SIG_VALTYPE_ 6 channel11 : 1;
+SIG_VALTYPE_ 6 channel10 : 1;
+SIG_VALTYPE_ 5 channel9 : 1;
+SIG_VALTYPE_ 5 channel8 : 1;
+SIG_VALTYPE_ 1 channel1 : 1;
+SIG_VALTYPE_ 1 channel0 : 1;
+SIG_VALTYPE_ 4 channel6 : 1;
+SIG_VALTYPE_ 4 channel7 : 1;
+SIG_VALTYPE_ 3 channel5 : 1;
+SIG_VALTYPE_ 3 channel4 : 1;
+SIG_VALTYPE_ 2 channel3 : 1;
+SIG_VALTYPE_ 2 channel2 : 1;
+

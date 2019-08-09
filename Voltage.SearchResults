@@ -1,0 +1,28 @@
+---- AD Matches (26 in 4 files) ----
+
+Main.c (user):	unsigned short vad;//???12?AD????*16???,????0~65535
+Main.c (user):extern u16 AD[14];
+Main.c (user):             short *ps = (short *)(AD + i);
+Main.c (user):             //Adc =  0.0000200645*AD[i] -0.664794f;
+Saw_Machine.htm (user):<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;virtual_PWM_OUTPUT
+Saw_Machine.htm (user):<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;virtual_PWM_OUTPUT
+Saw_Machine.htm (user):<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;virtual_PWM_OUTPUT
+Saw_Machine.htm (user):<P><STRONG><a name="[ad]"></a>virtual_PWM_OUTPUT</STRONG> (Thumb, 280 bytes, Stack size 8 bytes, main.o(i.virtual_PWM_OUTPUT))
+Sdadc.htm (user):<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CCP_Clear_Session_Configuration_ID
+Sdadc.htm (user):<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CCP_Clear_Session_Configuration_ID
+Sdadc.htm (user):<P><STRONG><a name="[ad]"></a>CCP_Clear_Session_Configuration_ID</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, ccp2conf.o(i.CCP_Clear_Session_Configuration_ID))
+Stm32f37x_it.c (stm32f3):u16 AD[14];
+Stm32f37x_it.c (stm32f3):       AD[7] = InjectedConvData2;
+Stm32f37x_it.c (stm32f3):       AD[8] = InjectedConvData2;
+Stm32f37x_it.c (stm32f3):       AD[9] = InjectedConvData2;
+Stm32f37x_it.c (stm32f3):       AD[10] = InjectedConvData2;
+Stm32f37x_it.c (stm32f3):       AD[11] = InjectedConvData2;
+Stm32f37x_it.c (stm32f3):       AD[12] = InjectedConvData2;
+Stm32f37x_it.c (stm32f3):       AD[13] = InjectedConvData2;
+Stm32f37x_it.c (stm32f3):       AD[0] = InjectedConvData;
+Stm32f37x_it.c (stm32f3):       AD[1] = InjectedConvData;
+Stm32f37x_it.c (stm32f3):       AD[2] = InjectedConvData;
+Stm32f37x_it.c (stm32f3):       AD[3] = InjectedConvData;
+Stm32f37x_it.c (stm32f3):       AD[4] = InjectedConvData;
+Stm32f37x_it.c (stm32f3):       AD[5] = InjectedConvData;
+Stm32f37x_it.c (stm32f3):       AD[6] = InjectedConvData;
