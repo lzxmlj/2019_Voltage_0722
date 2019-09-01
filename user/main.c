@@ -14,6 +14,7 @@
 #include "stm32f37x_rcc.h"
 #include "reuse.h"
 #include "stm32f37x_gpio.h"
+#include "lamubda.h"
 #define STM32_FLASH_BASE 0x08000000 	//STM32 FLASH����ʼ��ַ
 #define STM32_FLASH_SIZE 256 	 		//��ѡSTM32��FLASH������С(��λΪK)
 #define STM32_FLASH_WREN 1              //ʹ��FLASHд��(0��������;1��ʹ��)
@@ -145,7 +146,7 @@ bool VbRun_test, Vbtest_stop, VbRun_test_pre;
 float Vfpressure_limit, Vfpressure_Keep;
 float Kfvalue_air[9] = {0.65, 0.70, 0.80, 0.90, 1.016, 1.18, 1.43, 1.70, 2.42};
 float KfIpmeas[9] = {-2.22, -1.82, -1.11, -0.50, 0.00, 0.33, 0.67, 0.94, 1.38};
-__IO uint16_t ADCConvertedValue[13]; 
+__IO uint16_t ADCConvertedValue[12]; 
 uint32_t ADCConvertedValue_total;
 void ENC_Init(void);
 extern void CAN_Config(void);
@@ -176,6 +177,7 @@ void ADC1_Init(void);
 void IO_Configuration_base(void);
 void Diagnostic(void);
 void STMFLASH_Write_SJ(uint32_t WriteAddr,uint16_t *pBuffer,uint16_t NumToWrite);
+extern void lamuda_loop_app(void);
 __IO uint16_t  ADC1ConvertedValuetemp = 0;
 
 static void delay (int cnt) 
@@ -202,7 +204,7 @@ int main(void)
   rxmsgisok = false;
   uarttransmit = false;
   ScWork_flow = 0;
-  VcTestRUN = 50;
+  VcTestRUN = 50;	
   VcLoop_Count_Act = 1;
   VcLoop_Count = 1;
   RCC_GetClocksFreq(&RCC_Clocks);
@@ -299,9 +301,14 @@ int main(void)
          temp_readback = SPIByte(0x5688);
          
        }
+       if((count_time % 100 )== 0)
+       {
+          lamuda_loop_app();
+          count_time = 0;
+       }
        if((count_time % 10 )== 0)
        {
-          count_time = 0;
+
           j = 0;
           for(i = 0; i < 14;i++)
           {
@@ -360,7 +367,7 @@ void ADC1_Init(void)
   RCC_ADCCLKConfig(RCC_PCLK2_Div2); 
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);  
   /* GPIOB Periph clock enable */
-  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOC, ENABLE);
 
     
   /* ADC1 Periph clock enable */
@@ -371,10 +378,8 @@ void ADC1_Init(void)
   GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AN;
   GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL ;
   GPIO_Init(GPIOA, &GPIO_InitStruct);
-  
+
   GPIO_InitStruct.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
-  GPIO_Init(GPIOB, &GPIO_InitStruct);
-  GPIO_InitStruct.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1| GPIO_Pin_2;
   GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   DMA_DeInit(DMA1_Channel1);  
@@ -431,8 +436,7 @@ void ADC1_Init(void)
   ADC_RegularChannelConfig(ADC1, ADC_Channel_9, 10, ADC_SampleTime_55Cycles5);
   ADC_RegularChannelConfig(ADC1, ADC_Channel_10, 11, ADC_SampleTime_55Cycles5);
   ADC_RegularChannelConfig(ADC1, ADC_Channel_11, 12, ADC_SampleTime_55Cycles5);
-  ADC_RegularChannelConfig(ADC1, ADC_Channel_12, 13, ADC_SampleTime_55Cycles5);
-  ADC_RegularChannelConfig(ADC1, ADC_Channel_13, 14, ADC_SampleTime_55Cycles5);
+
   //ʹ��ADC1��DMA  
   ADC_DMACmd(ADC1, ENABLE); 
 
@@ -777,94 +781,7 @@ void SPI_Configuration(void)
    //----- Enable SPI1 ----
    //SPI_Cmd(SPI1, ENABLE);
 }
-   #if 0
-   void SPI1_Configuration(void)
-   {
-      SPI_InitTypeDef SPI_InitStructure;
-      GPIO_InitTypeDef GPIO_InitStructure;
-      NVIC_InitTypeDef NVIC_InitStructure;
    
-      RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB | RCC_AHBPeriph_GPIOC, ENABLE);
-     /* Connect CAN pins to AF7 */
-      RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1,ENABLE);
-   
-      //SPI_I2S_DeInit(SPI1);
-      GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;  //??????
-      GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-      GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-      GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
-      GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
-      GPIO_Init(GPIOA, &GPIO_InitStructure);
-      GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
-      
-      GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;  //??????
-      GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
-      GPIO_Init(GPIOB, &GPIO_InitStructure);
-      GPIO_Init(GPIOC, &GPIO_InitStructure);
-      GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
-      GPIO_Init(GPIOA, &GPIO_InitStructure);
-      //GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
-      //GPIO_Init(GPIOA, &GPIO_InitStructure);
-      
-      //GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
-      //GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;  //??????
-      //GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-      //GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-     // GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_DOWN;
-     // GPIO_Init(GPIOF, &GPIO_InitStructure);   
-      //GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
-      //GPIO_Init(GPIOF, &GPIO_InitStructure);   
-      
-   
-      GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_5); 
-      GPIO_PinAFConfig(GPIOA, GPIO_PinSource5, GPIO_AF_5); 
-      GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_5); 
-      //GPIO_PinAFConfig(GPIOA, GPIO_PinSource11, GPIO_AF_5); 
-   
-   
-      //SPI_I2S_DeInit(SPI2);
-      SPI_Cmd(SPI1, DISABLE);
-      //--------------------- SPI1 configuration ------------------
-      SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
-      SPI_InitStructure.SPI_Mode   = SPI_Mode_Master;
-      SPI_InitStructure.SPI_DataSize  = SPI_DataSize_8b;
-      SPI_InitStructure.SPI_CPOL   = SPI_CPOL_High;
-      SPI_InitStructure.SPI_CPHA   = SPI_CPHA_2Edge;
-      SPI_InitStructure.SPI_NSS   = SPI_NSS_Soft;
-      SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_16;
-      SPI_InitStructure.SPI_FirstBit    = SPI_FirstBit_MSB;
-      SPI_InitStructure.SPI_CRCPolynomial  = 7;
-      SPI_Init(SPI1, &SPI_InitStructure);
-      //SPI_NSSInternalSoftwareConfig(SPI1,SPI_NSSInternalSoft_Set);
-      //SPI_SSOutputCmd(SPI2, ENABLE);
-      //SPI_RxFIFOThresholdConfig(SPI2, SPI_RxFIFOThreshold_QF);
-      //--------- SPI2 configuration ------------------
-      //SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
-      //SPI_Init(SPI2, &SPI_InitStructure);
-      //--------- Enable SPI1 TXE interrupt ------------
-      //SPI_I2S_ITConfig(SPI1, SPI_I2S_IT_TXE, ENABLE);
-      //--------- Enable SPI2 RXNE interrupt -------------
-   //   SPI_I2S_ITConfig(SPI2, SPI_I2S_IT_RXNE | SPI_I2S_IT_OVR, ENABLE);
-      //----- Enable SPI2 ------
-      SPI_RxFIFOThresholdConfig(SPI1, SPI_RxFIFOThreshold_QF);
-      //SPI_SSOutputCmd(SPI2, ENABLE);
-#if 1
-   
-      SPI_I2S_ITConfig(SPI1, SPI_I2S_IT_RXNE, ENABLE);
-       NVIC_InitStructure.NVIC_IRQChannel = SPI1_IRQn;
-        NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x0;
-        NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x0;
-       NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-     NVIC_Init(&NVIC_InitStructure);
-  #endif
-      SPI_Cmd(SPI1, ENABLE);
-      GPIO_WriteBit(GPIOC, GPIO_Pin_0,0);
-      //GPIO_WriteBit(GPIOA, GPIO_Pin_4,0);
-      //----- Enable SPI1 ----
-      //SPI_Cmd(SPI1, ENABLE);
-   }
-#endif
-
 void TIM4_19_config()
 {
    GPIO_InitTypeDef GPIO_InitStructure; 

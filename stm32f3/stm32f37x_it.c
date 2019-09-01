@@ -76,6 +76,7 @@ extern u16 SPIByte(u16 byte);
 u16 SPI2_ReadByte(u16 TxData);
 u16 Master_Temp[100];
 u16 UR2_7, UA3_7, UW3_5, UC2_5, UD_3_5;
+uint16_t UA,UR;
 bool Vbleft, Vbright;
 uint16_t temp_readback;
 extern void Write_data(u8 RxData);
@@ -238,38 +239,30 @@ void SDADC3_IRQHandler(void)
 
        AD[7] = InjectedConvData2;
     }
-    else if(ChannelIndex2 == SDADC_Channel_1)
-    {
-       AD[8] = InjectedConvData2;
-    }
      else if(ChannelIndex2 == SDADC_Channel_2)
     {
     
        AD[9] = InjectedConvData2;
-    }
-    else if(ChannelIndex2 == SDADC_Channel_3)
-    {
-       AD[10] = InjectedConvData2;
     }
     else  if(ChannelIndex2 == SDADC_Channel_4)
     {
        AD[11] = InjectedConvData2;
        UD_3_5 =  (u16)InjectedConvData2;
     }
-    else  if(ChannelIndex2 == SDADC_Channel_5)
+    else  if(ChannelIndex2 == SDADC_Channel_6)
     {
        AD[12] = InjectedConvData2;
        UD_3_5 =  (u16)InjectedConvData2;
     }
-    else if(ChannelIndex2 == SDADC_Channel_6)
+    else if(ChannelIndex2 == SDADC_Channel_8)
     {
        AD[13] = InjectedConvData2;
        InjectedConvData1[7] = InjectedConvData2;
        UA3_7= (u16)InjectedConvData2 ;
        SDADC_Cmd(SDADC2, ENABLE);
        SDADC_Cmd(SDADC3, DISABLE);
-       //SDADC_Cmd(SDADC1, ENABLE);
-       SDADC_SoftwareStartInjectedConv(SDADC2);
+       SDADC_Cmd(SDADC1, ENABLE);
+       SDADC_SoftwareStartInjectedConv(SDADC1);
     }
     VcFault = 3;
 
@@ -279,6 +272,8 @@ void SDADC3_IRQHandler(void)
 
   }
 }
+uint16_t test_SDADC;
+uint16_t sdadc_test[10];
 void SDADC1_IRQHandler(void)
 {
   uint32_t ChannelIndex;
@@ -289,14 +284,30 @@ void SDADC1_IRQHandler(void)
     /* Get the converted value */
     temp = SDADC_GetInjectedConversionValue(SDADC1, &ChannelIndex);
     #if 1
-    if( ChannelIndex == SDADC_Channel_8)
+    if(ChannelIndex == SDADC_Channel_0)
+    {
+        sdadc_test[0] = temp;
+    }
+    else if(ChannelIndex == SDADC_Channel_3)
+    {
+        UA = temp;
+    }
+    else if(ChannelIndex == SDADC_Channel_4)
+    {
+        UR = temp;
+   }
+   else if( ChannelIndex == SDADC_Channel_6)
+   {
+        test_SDADC = temp;
+
+   }
+    else if( ChannelIndex == SDADC_Channel_8)
     {
       InjectedConvData3[0] = temp;
-
-    }
-    else if( ChannelIndex == SDADC_Channel_7)
-    {
-      InjectedConvData3[1] = temp;
+        SDADC_Cmd(SDADC3, DISABLE);
+       SDADC_Cmd(SDADC2, ENABLE);
+       SDADC_Cmd(SDADC1, DISABLE);
+       SDADC_SoftwareStartInjectedConv(SDADC2);
     }
     else
     #endif
@@ -305,10 +316,7 @@ void SDADC1_IRQHandler(void)
       InjectedConvData3[2] = temp;
             
       UW3_5 = (u16)(InjectedConvData3[2] + 32768) * 2.048 /65535;
-       SDADC_Cmd(SDADC3, DISABLE);
-       SDADC_Cmd(SDADC2, ENABLE);
-       SDADC_Cmd(SDADC1, DISABLE);
-       SDADC_SoftwareStartInjectedConv(SDADC2);
+
     }
         VcFault = 6;
 
@@ -329,44 +337,10 @@ void SDADC2_IRQHandler(void)
 
        avgsdadc[numbersdadc] = InjectedConvData;
        AD[0] = InjectedConvData;
-	if(numbersdadc != 9)
-	 numbersdadc++;
-	else
-	numbersdadc = 0;
-    }
-    else if(ChannelIndex2 == SDADC_Channel_1)
-    {
-       AD[1] = InjectedConvData;
-    }
-     else if(ChannelIndex2 == SDADC_Channel_2)
-    {
-    
-       AD[2] = InjectedConvData;
-    }
-   else if(ChannelIndex2 == SDADC_Channel_3)
-    {
-       AD[3] = InjectedConvData;
-    }
-    else  if(ChannelIndex2 == SDADC_Channel_4)
-    {
-       AD[4] = InjectedConvData;
-       UD_3_5 =  (u16)InjectedConvData2;
-    }
-    else  if(ChannelIndex2 == SDADC_Channel_5)
-    {
-       AD[5] = InjectedConvData;
-       UD_3_5 =  (u16)InjectedConvData2;
-    }
-    else if(ChannelIndex2 == SDADC_Channel_6)
-    {
-       AD[6] = InjectedConvData;
-       InjectedConvData1[3] = InjectedConvData;
-       UR2_7= (u16)InjectedConvData;
        SDADC_Cmd(SDADC3, ENABLE);
        SDADC_Cmd(SDADC2, DISABLE);
-       //SDADC_Cmd(SDADC1, DISABLE);
+       SDADC_Cmd(SDADC1, DISABLE);
        SDADC_SoftwareStartInjectedConv(SDADC3);
-
     }
     VcFault = 4;
 

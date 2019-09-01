@@ -31,19 +31,18 @@ extern void DMA1_Config(void);
   /* SDADC io�˿�����5P (PB1) */
   GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AN;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_15 | GPIO_Pin_14 | GPIO_Pin_13 | GPIO_Pin_12 | GPIO_Pin_11 | GPIO_Pin_7 | GPIO_Pin_10 | GPIO_Pin_9 | GPIO_Pin_8;
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_15  | GPIO_Pin_13 | GPIO_Pin_12 | GPIO_Pin_11 | GPIO_Pin_7 | GPIO_Pin_10 | GPIO_Pin_9 | GPIO_Pin_8;
   //GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_7 | GPIO_Pin_9 | GPIO_Pin_10;
   GPIO_Init(POT_GPIO_PORT, &GPIO_InitStructure);
   GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AN;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_14 | GPIO_Pin_13 | GPIO_Pin_12 | GPIO_Pin_11 | GPIO_Pin_10 | GPIO_Pin_9 | GPIO_Pin_8;
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_15 | GPIO_Pin_14 | GPIO_Pin_13 | GPIO_Pin_12 | GPIO_Pin_11 | GPIO_Pin_10 | GPIO_Pin_9 | GPIO_Pin_8;
 //  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_9;
   GPIO_Init(POT_GPIO_PORT3, &GPIO_InitStructure);
   GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AN;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_2;
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_2 | GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_10 | GPIO_Pin_14 | GPIO_Pin_15;
   GPIO_Init(GPIOB, &GPIO_InitStructure);
-
   /* ѡ���ⲿ�ο��� The reference voltage selection is available
      only in SDADC1 and therefore to select the VREF for SDADC2/SDADC3, SDADC1
      clock must be already enabled */
@@ -100,34 +99,29 @@ extern void DMA1_Config(void);
   //SDADC_DMAConfig(POT_SDADC, SDADC_DMATransfer_Injected, ENABLE);
   //SDADC_DMAConfig(POT_SDADC3, SDADC_DMATransfer_Injected, ENABLE);
   SDADC_ChannelConfig(SDADC1, SDADC_Channel_0, SDADC_Conf_0);
-  SDADC_ChannelConfig(SDADC1, SDADC_Channel_1, SDADC_Conf_0);
+  //SDADC_ChannelConfig(SDADC1, SDADC_Channel_1, SDADC_Conf_0);
   SDADC_ChannelConfig(SDADC1, SDADC_Channel_2, SDADC_Conf_0);
   SDADC_ChannelConfig(SDADC1, SDADC_Channel_3, SDADC_Conf_0);
   SDADC_ChannelConfig(SDADC1, SDADC_Channel_4, SDADC_Conf_0);
-  SDADC_ChannelConfig(SDADC1, SDADC_Channel_5, SDADC_Conf_0);
+  //SDADC_ChannelConfig(SDADC1, SDADC_Channel_5, SDADC_Conf_0);
   SDADC_ChannelConfig(SDADC1, SDADC_Channel_6, SDADC_Conf_0);
   SDADC_ChannelConfig(SDADC1, SDADC_Channel_8, SDADC_Conf_0);
   /* select POT_SDADC channel 5 to use conf0 */
   //SDADC_ChannelConfig(SDADC1, SDADC_Channel_2, SDADC_Conf_0);
   SDADC_ChannelConfig(POT_SDADC, SDADC_Channel_0, SDADC_Conf_0);
-  SDADC_ChannelConfig(POT_SDADC, SDADC_Channel_1, SDADC_Conf_0);
-  SDADC_ChannelConfig(POT_SDADC, SDADC_Channel_2, SDADC_Conf_0);
-  SDADC_ChannelConfig(POT_SDADC, SDADC_Channel_3, SDADC_Conf_0);
-  SDADC_ChannelConfig(POT_SDADC, SDADC_Channel_4, SDADC_Conf_0);
-  SDADC_ChannelConfig(POT_SDADC, SDADC_Channel_5, SDADC_Conf_0);
-  SDADC_ChannelConfig(POT_SDADC, SDADC_Channel_6, SDADC_Conf_0);
-  SDADC_ChannelConfig(POT_SDADC, SDADC_Channel_8, SDADC_Conf_0);
+
   //SDADC_ChannelConfig(POT_SDADC3, SDADC_Channel_2, SDADC_Conf_0);
   SDADC_ChannelConfig(POT_SDADC3, SDADC_Channel_0, SDADC_Conf_0);
-  SDADC_ChannelConfig(POT_SDADC3, SDADC_Channel_1, SDADC_Conf_0);
+
   SDADC_ChannelConfig(POT_SDADC3, SDADC_Channel_2, SDADC_Conf_0);
-  SDADC_ChannelConfig(POT_SDADC3, SDADC_Channel_3, SDADC_Conf_0);
+
   SDADC_ChannelConfig(POT_SDADC3, SDADC_Channel_4, SDADC_Conf_0);
-  SDADC_ChannelConfig(POT_SDADC3, SDADC_Channel_5, SDADC_Conf_0);
+
   SDADC_ChannelConfig(POT_SDADC3, SDADC_Channel_6, SDADC_Conf_0);
+  SDADC_ChannelConfig(POT_SDADC3, SDADC_Channel_8, SDADC_Conf_0);
   /* select channel 5 */
-  SDADC_InjectedChannelSelect(SDADC1, SDADC_Channel_2);
-  SDADC_InjectedChannelSelect(POT_SDADC, POT_SDADC_CHANNEL);
+  SDADC_InjectedChannelSelect(SDADC1, SDADC_Channel_0 | SDADC_Channel_2 | SDADC_Channel_3 | SDADC_Channel_4 | SDADC_Channel_6 |SDADC_Channel_8);
+  SDADC_InjectedChannelSelect(POT_SDADC,SDADC_Channel_0 );
   SDADC_InjectedChannelSelect(POT_SDADC3, POT_SDADC_CHANNEL);
   /* Enable continuous mode */
   SDADC_InjectedContinuousModeCmd(POT_SDADC, ENABLE);
