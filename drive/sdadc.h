@@ -17,7 +17,7 @@
                                                POT_SDADC_GAIN */
 #define SDADC_GAIN           (uint32_t) 1  /* SDADC internal gain is set to 1: update this define
                                               according to POT_SDADC_GAIN */
-#define POT_SDADC_CHANNEL    ( SDADC_Channel_0 |SDADC_Channel_1 | SDADC_Channel_2 | SDADC_Channel_3 |  SDADC_Channel_4 |SDADC_Channel_5 | SDADC_Channel_6 | SDADC_Channel_8)
+#define POT_SDADC_CHANNEL    ( SDADC_Channel_0 | SDADC_Channel_2 |SDADC_Channel_4 | SDADC_Channel_6 | SDADC_Channel_8)
 #define SDADC_RESOL          (uint32_t) 65535 /* 2e16 - 1 */
 #define SDADC_INIT_TIMEOUT   30 /* ~ about two SDADC clock cycles after INIT is set */
 #define SDADC_CAL_TIMEOUT    4*30720 /*  ~5.12 ms at 6 MHz  in a single calibration sequence */
